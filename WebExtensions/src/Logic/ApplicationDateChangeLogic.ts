@@ -9,6 +9,7 @@ export class ApplicationDateChangeLogic {
 
         if (datePickerTo.value < datePickerFrom.value) {
             datePickerTo.value = args.oldValue;
+            datePickerFrom.value = args.oldValue;
         }
     }
 }
