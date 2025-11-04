@@ -3,7 +3,8 @@ import { ILayoutBeforeSavingEventArgs } from "@docsvision/webclient/System/ILayo
 import { Layout } from "@docsvision/webclient/System/Layout";
 import { ApplicationBuisnessTripLogic } from "../Logic/ApplicationBuisnessTripLogic";
 
-export async function ddApplicationBusinessTrip_validation(sender: Layout, args: ICancelableEventArgs<ILayoutBeforeSavingEventArgs>) {
+
+export async function ddApplicationBusinessTrip_save(sender: Layout, args: ICancelableEventArgs<ILayoutBeforeSavingEventArgs>) {
     if (!sender) {return; }
     let logic = new ApplicationBuisnessTripLogic();
     await logic.validationData(sender, args);

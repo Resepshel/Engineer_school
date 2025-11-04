@@ -6,18 +6,25 @@ import { DirectoryDesignerRow} from "@docsvision/webclient/BackOffice/DirectoryD
 
 export class ApplicationBriefInfoLogic {
     public async briefInfoView(sender:Layout) {
-        let docName = sender.layout.controls.get<TextBox>("documentName").value;
-        let docNameLabel = sender.layout.controls.get<TextBox>("documentName").params.labelText;
-        let creationDate = sender.layout.controls.get<DateTimePicker>("creationDate").value;
-        let creationDateLabel = sender.layout.controls.get<DateTimePicker>("creationDate").params.labelText;
-        let dateFrom = sender.layout.controls.get<DateTimePicker>("dateTripFrom").value;
-        let dateFromLabel = sender.layout.controls.get<DateTimePicker>("dateTripFrom").params.labelText;
-        let dateTo = sender.layout.controls.get<DateTimePicker>("dateTripTo").params.value;
-        let dateToLabel = sender.layout.controls.get<DateTimePicker>("dateTripTo").params.labelText;
-        let reason = sender.layout.controls.get<TextBox>("reason").value;
-        let reasonLabel = sender.layout.controls.get<TextBox>("reason").params.labelText;
-        let city = sender.layout.controls.get<DirectoryDesignerRow>("city").params.value;
-        let cityLable = sender.layout.controls.get<DirectoryDesignerRow>("city").params.labelText;
+        let docNameControl = sender.layout.controls.get<TextBox>("documentName");
+        let reasonControl = sender.layout.controls.get<TextBox>("reason");
+        let creationDateControl = sender.layout.controls.get<DateTimePicker>("creationDate");
+        let dateTripFromControl = sender.layout.controls.get<DateTimePicker>("dateTripFrom");
+        let dateTripToControl = sender.layout.controls.get<DateTimePicker>("dateTripTo");
+        let cityControl = sender.layout.controls.get<DirectoryDesignerRow>("city");
+
+        let docName = docNameControl.value;
+        let docNameLabel = docNameControl.params.labelText;
+        let creationDate = creationDateControl.params;
+        let creationDateLabel = creationDateControl.params.labelText;
+        let dateFrom = dateTripFromControl.value.getFullYear();
+        let dateFromLabel = dateTripFromControl.params.labelText;
+        let dateTo = dateTripToControl.value.getMonth();
+        let dateToLabel = dateTripToControl.params.labelText;
+        let reason = reasonControl.value;
+        let reasonLabel = reasonControl.params.labelText;
+        let city = cityControl.value.name;
+        let cityLable = cityControl.params.labelText;
 
         const text = [`${docNameLabel}: ${docName}`, `${creationDateLabel}: ${creationDate}`,
                 `${dateFromLabel}: ${dateFrom}`, `${dateToLabel}: ${dateTo}`, `${reasonLabel}: ${reason}`,
