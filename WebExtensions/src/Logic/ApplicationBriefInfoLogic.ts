@@ -34,10 +34,6 @@ export class ApplicationBriefInfoLogic {
         await sender.getService($MessageBox).showInfo(text, "Краткая информация");
     }
         private formatDate(d: Date | null | undefined): string {
-        if (!d) return "-";
-        // Красивый формат: 5 ноября 2025
         return new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "long", year: "numeric" }).format(d);
-        // Если нужен формат с временем, можно использовать:
-        // return new Intl.DateTimeFormat("ru-RU", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" }).format(d);
     }
 }
