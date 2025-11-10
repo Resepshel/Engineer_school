@@ -86,20 +86,13 @@ namespace BusinessTripApplicationServerExtension.Feature1.Services
             var ctx = sessionContext.ObjectContext ?? throw new ArgumentException(nameof(sessionContext));
             var staffSvc = ctx.GetService<IStaffService>();
             var currentEmpl = staffSvc.GetCurrentEmployee();
-            string phone = Convert.ToString(currentEmpl.Phone) ?? string.Empty;
+            string phone = string.IsNullOrWhiteSpace(currentEmpl?.Phone) ? null : currentEmpl.Phone;
 
             var manager = staffSvc.GetEmployeeManager(currentEmpl);
-            Guid managerId = Guid.Empty;
-            string managerName = string.Empty;
 
-            if (manager != null)
-            {
-                managerId = manager.GetObjectId();
-                managerName = manager.DisplayString ?? string.Empty;
-            }
             card.MainInfo["ComPers"] = currentEmpl?.GetObjectId();
             card.MainInfo["Phone"] = phone;
-            card.MainInfo[CardDocument.MainInfo.Registrar] = managerId;
+            card.MainInfo[CardDocument.MainInfo.Registrar] = manager;
             sessionContext.ObjectContext.SaveObject(card);
         }
     }

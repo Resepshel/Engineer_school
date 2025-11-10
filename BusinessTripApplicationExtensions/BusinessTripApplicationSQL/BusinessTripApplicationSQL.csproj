@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\BusinessTripApplicationExtensions.snk</AssemblyOriginatorKeyFile>
+	<SGenKeyFile>..\BusinessTripApplicationExtensions.snk</SGenKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocsVision.Platform.ObjectManager.Rest" Version="6.1.525" />
+    <PackageReference Include="DocsVision.Platform.StorageServer" Version="6.1.525" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DocsVision.Platform.StorageServer">
+      <HintPath>bin\Debug\net6.0\DocsVision.Platform.StorageServer.dll</HintPath>
+    </Reference>
+    <Reference Include="DocsVision.Platform.StorageServer.Data">
+      <HintPath>bin\Debug\net6.0\DocsVision.Platform.StorageServer.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="DocsVision.Platform.StorageServer.Runtime">
+      <HintPath>bin\Debug\net6.0\DocsVision.Platform.StorageServer.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

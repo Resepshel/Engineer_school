@@ -1,7 +1,9 @@
 ﻿using Autofac;
 using BusinessTripApplicationServerExtension.CardLifeCycle;
 using BusinessTripApplicationServerExtension.Feature1.Services;
+using BusinessTripApplicationServerExtension.Plugins;
 using DocsVision.BackOffice.CardLib.CardDefs;
+using DocsVision.Layout.WebClient.Services;
 using DocsVision.WebClient.Extensibility;
 using DocsVision.WebClient.Helpers;
 using DocsVision.WebClientLibrary.ObjectModel.Services.EntityLifeCycle;
@@ -62,7 +64,7 @@ namespace BusinessTripApplicationServerExtension
                 return original;
             });
 
-
+            services.AddSingleton<IDataGridControlPlugin, BusinessTripAppPlugin>();
             // Примеры регистрации различных типов ВК 
             // services.AddSingleton<YourServiceInterface, YourServiceClass>();
             // services.AddSingleton<IBindingConverter, YourBindingConverterType>();
